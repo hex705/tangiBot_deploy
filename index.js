@@ -21,10 +21,15 @@ const config = require("./config.json");
 const Welcome_to_tangible = '757719742068031598';
 const Whats_your_section = '764337974505898004';
 
-// roles
-const Tuesday9 = '759138756112023574';
-const Thursday3 = '759139122828541985';
-const Thursday6 = '759139214188085299';
+// roles - 2021
+// const Tuesday9 = '759138756112023574';
+// const Thursday3 = '759139122828541985';
+// const Thursday6 = '759139214188085299';
+
+// roles - 2022
+const Tuesday6   = '1016012395388342394';
+const Wednesday9 = '1016013212577169479';
+const Thursday3  = '1016013647253864488';
 
 const Community = '764344811439390760';
 const Maker     = '764611244677922858';
@@ -104,34 +109,34 @@ function newUSER(roleName, message){
 
 function newSection(theSection, message){
   var roleToAdd;
-  var sectionRoles = [Tuesday9,Thursday3,Thursday6];
+  var sectionRoles = [Tuesday6, Wednesday9, Thursday3];
 
 
   console.log("newSection -- arrival " + theSection);
   switch ( theSection ) {
-    case "tue9":
+    case "tue6":
       roleToAdd = 0;
-      console.log("Tue9 " + roleToAdd);
+      console.log("tue6 " + roleToAdd);
+    break;
+    case "wed9":
+      roleToAdd = 1;
+      console.log("wed9 " + roleToAdd);
     break;
     case "thu3":
-      roleToAdd = 1;
-      console.log("Thu3 " + roleToAdd);
-    break;
-    case "thu6":
       roleToAdd = 2;
-      console.log("Thu6 " + roleToAdd);
+      console.log("thu3 " + roleToAdd);
     break;
   } // end swtich
 
-  if (message.member.roles.cache.find(r => r.name === "Tue9")) { // check if an alt section was assigned
+  if (message.member.roles.cache.find(r => r.name === "tue6")) { // check if an alt section was assigned
     console.log("remove tuesday section");
     message.member.roles.remove(sectionRoles[0]);// remove that section if found
   }
-  if (message.member.roles.cache.find(r => r.name === 'Thu3')){ // check if an alt section was assigned
+  if (message.member.roles.cache.find(r => r.name === 'wed9')){ // check if an alt section was assigned
     console.log("remove tuesday section");
     message.member.roles.remove(sectionRoles[1]);// remove that section if found
   }
-  if (message.member.roles.cache.find(r => r.name === 'Thu6')){ // check if an alt section was assigned
+  if (message.member.roles.cache.find(r => r.name === 'thu3')){ // check if an alt section was assigned
     console.log("remove tuesday section");
     message.member.roles.remove(sectionRoles[2]);// remove that section if found
   }
